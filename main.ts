@@ -6,8 +6,24 @@ interface Card {
 const deck: Card[] = [];
 const suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades'];
 
+const emoji = (suit) => {
+  switch (suit) {
+    case 'Hearts':
+      return '♠️';
+    case 'Diamonds':
+      return '♦️';
+    case 'Clubs':
+      return '♣️';
+    case 'Spades':
+      return '♠️';
+    default:
+      return '';
+  }
+}
+
 for (let num = 1; num < 14; num++) {
   for (const suit of suits) {
+    document.querySelector('.deck').innerHTML += `<div class="card">${num + emoji(suit)}</div>`;
     deck.push({ suit, num });
   }
 }
